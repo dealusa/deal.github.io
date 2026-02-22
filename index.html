@@ -1,50 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guitar Deals Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-card { animation: fadeInUp 0.8s ease-out forwards; }
-    </style>
-</head>
-<body class="bg-gray-900 text-white font-sans">
-    <nav class="p-5 bg-black flex justify-between items-center sticky top-0 z-50">
-        <h1 class="text-2xl font-bold text-yellow-500">GuitarDeal.io</h1>
-        <div class="space-x-4 text-sm md:text-base">
-            <a href="#" class="hover:text-yellow-500">Amazon</a>
-            <a href="#" class="hover:text-yellow-500">Alibaba</a>
-            <a href="#" class="hover:text-yellow-500">Arrow USA</a>
-        </div>
-    </nav>
-    <header class="py-16 text-center bg-gradient-to-b from-gray-800 to-gray-900">
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-4 animate-card">Guitar Exclusive Deals</h2>
-        <p class="text-gray-400 text-lg">Top Automated Offers Just for You!</p>
-    </header>
-    <main class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 animate-card transition hover:scale-105">
-            <img src="https://images.unsplash.com" alt="Guitar" class="rounded-xl mb-4">
-            <h3 class="text-xl font-bold">Acoustic Pro</h3>
-            <p class="text-yellow-500 text-2xl font-bold mt-2">$199</p>
-            <button class="mt-4 w-full bg-yellow-600 hover:bg-yellow-500 py-3 rounded-xl font-bold">View on Amazon</button>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 animate-card transition hover:scale-105" style="animation-delay: 0.2s;">
-            <img src="https://images.unsplash.com" alt="Guitar" class="rounded-xl mb-4">
-            <h3 class="text-xl font-bold">Electric Rocker</h3>
-            <p class="text-yellow-500 text-2xl font-bold mt-2">$450</p>
-            <button class="mt-4 w-full bg-yellow-600 hover:bg-yellow-500 py-3 rounded-xl font-bold">View on Alibaba</button>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 animate-card transition hover:scale-105" style="animation-delay: 0.4s;">
-            <img src="https://images.unsplash.com" alt="Guitar" class="rounded-xl mb-4">
-            <h3 class="text-xl font-bold">Premium Bass</h3>
-            <p class="text-yellow-500 text-2xl font-bold mt-2">$320</p>
-            <button class="mt-4 w-full bg-yellow-600 hover:bg-yellow-500 py-3 rounded-xl font-bold">View on Arrow USA</button>
-        </div>
-    </main>
-    <footer class="text-center py-10 text-gray-500 border-t border-gray-800">
-        <p>&copy; 2024 dealusa.github.io - Guitar Affiliate Hub</p>
-    </footer>
-</body>
-</html>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net" />
+
+<style>
+  body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+  .swiper { width: 100%; height: 400px; padding: 50px 0; }
+  .swiper-slide {
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .swiper-slide:hover { transform: scale(1.05); }
+  .offer-img { width: 150px; height: 150px; object-fit: contain; }
+  .offer-title { font-size: 18px; font-weight: bold; margin: 10px 0; color: #333; }
+  .btn-buy { background: #ff4d4d; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
+</style>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper" id="deal-container">
+    <!-- এখানে জাভাস্ক্রিপ্ট দিয়ে ডিলগুলো অটোমেটিক আসবে -->
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net"></script>
+<script>
+  // ডিলের ডাটা (ভবিষ্যতে এটি MyLead API থেকে অটোমেটিক আসবে)
+  const deals = [
+    { title: "Amazon Tech Deal", img: "https://via.placeholder.com", link: "#", discount: "50% OFF" },
+    { title: "Alibaba Gadgets", img: "https://via.placeholder.com", link: "#", discount: "30% OFF" },
+    { title: "USA Fashion Sale", img: "https://via.placeholder.com", link: "#", discount: "70% OFF" }
+  ];
+
+  const container = document.getElementById('deal-container');
+
+  // ডিলগুলো ওয়েবসাইট কার্ডে যোগ করা
+  deals.forEach(deal => {
+    container.innerHTML += `
+      <div class="swiper-slide">
+        <span style="background:red; color:white; padding:5px; border-radius:5px;">${deal.discount}</span>
+        <img src="${deal.img}" class="offer-img">
+        <div class="offer-title">${deal.title}</div>
+        <a href="${deal.link}" class="btn-buy">View Deal</a>
+      </div>
+    `;
+  });
+
+  // স্লাইডার এনিমেশন চালু করা
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow", // এনিমেশন স্টাইল
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    autoplay: { delay: 2500, disableOnInteraction: false }, // অটোমেটিক চলবে
+    pagination: { el: ".swiper-pagination" },
+  });
+</script>
