@@ -8,7 +8,7 @@
     <!-- Google Fonts for USA Audience -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
-    <!-- Swiper CSS for Animation -->
+    <!-- Swiper CSS for Animation (Fixed Link) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net" />
     
     <style>
@@ -131,7 +131,6 @@
             <div class="swiper-wrapper" id="deal-container">
                 <!-- Deals will be loaded here automatically -->
             </div>
-            <!-- Pagination dots -->
             <div class="swiper-pagination"></div>
         </div>
     </div>
@@ -140,11 +139,11 @@
         &copy; 2024 Deal USA. All rights reserved. Affiliate Disclosure Included.
     </footer>
 
-    <!-- Swiper JS Library -->
+    <!-- Swiper JS Library (Fixed Link) -->
     <script src="https://cdn.jsdelivr.net"></script>
 
     <script>
-        // Real-time Deal Data (Future: Integrated with MyLead API)
+        // Fixed Deal Data Array
         const deals =;
 
         const container = document.getElementById('deal-container');
@@ -167,13 +166,6 @@
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 10,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
