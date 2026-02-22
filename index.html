@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deal USA - Best Online Deals & Discounts</title>
     
-    <!-- Google Fonts for USA Audience -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
-    <!-- Swiper CSS for Animation (Fixed Link) -->
+    <!-- Swiper CSS (Full Link) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net" />
     
     <style>
@@ -33,18 +34,21 @@
             background-color: var(--dark-blue);
             width: 100%;
             color: white;
-            padding: 20px 0;
+            padding: 25px 0;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
-        header p { margin: 5px 0 0; font-size: 14px; opacity: 0.8; }
+        header h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
+        header p { margin: 5px 0 0; font-size: 16px; opacity: 0.8; }
 
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 40px 20px;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
         }
 
         .swiper {
@@ -55,9 +59,8 @@
         .swiper-slide {
             background: #fff;
             border-radius: 20px;
-            width: 320px;
-            height: auto;
-            padding: 30px;
+            width: 300px;
+            padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
             display: flex;
@@ -70,18 +73,17 @@
             background: var(--primary-red);
             color: white;
             font-weight: 700;
-            padding: 6px 18px;
+            padding: 6px 15px;
             border-radius: 50px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+            font-size: 12px;
+            margin-bottom: 15px;
         }
 
         .offer-img {
-            width: 100%;
-            max-height: 180px;
+            width: 150px;
+            height: 150px;
             object-fit: contain;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .offer-title {
@@ -89,33 +91,33 @@
             font-weight: 600;
             color: #333;
             margin-bottom: 15px;
-            height: 54px;
+            height: 50px;
             overflow: hidden;
         }
 
         .btn-get-deal {
             background: var(--dark-blue);
             color: white;
-            padding: 12px 35px;
+            padding: 10px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: 2px solid var(--dark-blue);
+            transition: 0.3s;
         }
 
         .btn-get-deal:hover {
-            background: transparent;
-            color: var(--dark-blue);
-            box-shadow: 0 5px 15px rgba(26, 35, 126, 0.2);
+            background: #0d144d;
+            transform: translateY(-2px);
         }
 
         footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 12px;
+            background: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 13px;
             color: #777;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
@@ -127,9 +129,10 @@
     </header>
 
     <div class="container">
+        <!-- Slider Main Container -->
         <div class="swiper mySwiper">
             <div class="swiper-wrapper" id="deal-container">
-                <!-- Deals will be loaded here automatically -->
+                <!-- Data will appear here -->
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -139,41 +142,35 @@
         &copy; 2024 Deal USA. All rights reserved. Affiliate Disclosure Included.
     </footer>
 
-    <!-- Swiper JS Library (Fixed Link) -->
+    <!-- Swiper JS (Full Library Link) -->
     <script src="https://cdn.jsdelivr.net"></script>
 
     <script>
-        // Fixed Deal Data Array
+        // Real Deal Data
         const deals =;
 
         const container = document.getElementById('deal-container');
 
-        // Generating Dynamic Content
+        // Adding Deals to the Website
         deals.forEach(deal => {
             container.innerHTML += `
                 <div class="swiper-slide">
                     <div class="discount-badge">${deal.discount}</div>
-                    <img src="${deal.img}" class="offer-img" alt="${deal.title}">
+                    <img src="${deal.img}" class="offer-img">
                     <div class="offer-title">${deal.title}</div>
-                    <a href="${deal.link}" target="_blank" class="btn-get-deal">GET DEAL NOW</a>
+                    <a href="${deal.link}" target="_blank" class="btn-get-deal">GET DEAL</a>
                 </div>
             `;
         });
 
-        // Initialize Swiper Animation
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
+        // Initializing the Animation
+        new Swiper(".mySwiper", {
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            spaceBetween: 30,
+            autoplay: { delay: 2500 },
+            pagination: { el: ".swiper-pagination", clickable: true },
         });
     </script>
 </body>
