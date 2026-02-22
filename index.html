@@ -27,8 +27,7 @@
 </div>
 
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net"></script>
-<script>
+https://cdn.jsdelivr.net
   // ডিলের ডাটা (ভবিষ্যতে এটি MyLead API থেকে অটোমেটিক আসবে)
   const deals = [
     { title: "Amazon Tech Deal", img: "https://via.placeholder.com", link: "#", discount: "50% OFF" },
@@ -60,3 +59,45 @@
     pagination: { el: ".swiper-pagination" },
   });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal USA - Best Deals</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net" />
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; text-align: center; }
+        .swiper { width: 100%; padding: 50px 0; }
+        .swiper-slide { background: #fff; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .offer-img { width: 100%; height: 200px; object-fit: contain; }
+        .btn-buy { display: inline-block; margin-top: 15px; background: #ff4d4d; color: #fff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🔥 Today's Best Deals in USA 🔥</h1>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="deal-container"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net"></script>
+    <script>
+        const deals = [
+            { title: "Amazon Electronics", img: "https://via.placeholder.com", link: "#", discount: "40% OFF" },
+            { title: "Alibaba Best Offers", img: "https://via.placeholder.com", link: "#", discount: "60% OFF" }
+        ];
+        const container = document.getElementById('deal-container');
+        deals.forEach(deal => {
+            container.innerHTML += `
+                <div class="swiper-slide">
+                    <div style="color:red; font-weight:bold;">${deal.discount}</div>
+                    <img src="${deal.img}" class="offer-img">
+                    <h3>${deal.title}</h3>
+                    <a href="${deal.link}" class="btn-buy">Get Deal</a>
+                </div>`;
+        });
+        new Swiper(".mySwiper", { autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination", clickable: true } });
+    </script>
+</body>
+</html>
