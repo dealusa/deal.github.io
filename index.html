@@ -1,25 +1,134 @@
-I've created a fully responsive, high-converting affiliate deal landing page in a single HTML file for your site (`dealusa.github.io`).
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Marketplace - Best Deals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com"/>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; background: #f4f4f4; }
+        
+        /* এনিমেটেড ইমেজ গ্রিড */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            height: 300px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            animation: pulse 2s infinite; /* নড়াচড়া করার এনিমেশন */
+        }
 
-You can simply:
+        /* সার্চ ইঞ্জিন সেকশন */
+        .search-container {
+            text-align: center;
+            padding: 50px 20px;
+            background: #232f3e;
+            color: white;
+        }
+        .search-bar {
+            width: 60%;
+            padding: 15px;
+            border-radius: 30px;
+            border: none;
+            font-size: 18px;
+        }
 
-1. Open your `index.html` on GitHub
-2. Paste the entire code from the canvas
-3. Save and publish
+        /* প্রোডাক্ট ডিসপ্লে */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            width: 250px;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card h3 { color: #d9534f; }
+        .buy-btn {
+            background: #ff9900;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
 
-It already includes:
+    <!-- ১. এনিমেটেড ছবি (Pitbull Style) -->
+    <div class="image-grid" id="imageGrid">
+        <!-- জাভাস্ক্রিপ্ট দিয়ে এখানে ছবি লোড হবে -->
+    </div>
 
-* HTML5 + Tailwind CSS
-* Animated 3D Coverflow Slider (Swiper.js with full CDN)
-* Autoplay + Pagination Dots
-* Clean professional header (USA audience optimized)
-* High-converting deal cards with discount badges & hover CTA
-* Affiliate disclosure footer
-* Mobile + desktop responsive design
+    <!-- ২. সার্চ ইঞ্জিন -->
+    <div class="search-container">
+        <h1>Find Best Marketplace Offers</h1>
+        <input type="text" id="searchInput" class="search-bar" placeholder="সার্চ করুন (যেমন: Mobile, Laptop, Offers)...">
+    </div>
 
-If you want, I can next:
+    <!-- ৩. অটোমেটিক ডিলস এবং এসইও প্রোডাক্ট -->
+    <div class="product-section" id="productDisplay">
+        <!-- প্রোডাক্ট কার্ড এখানে দেখা যাবে -->
+    </div>
 
-* Add real Amazon affiliate links
-* Auto-fetch deals dynamically
-* Add countdown timers (for higher conversions)
-* Add email capture popup for affiliate marketing growth
+    <script>
+        // ডামি প্রোডাক্ট ডেটা (এখানে আপনি আপনার SEO করা প্রোডাক্ট যোগ করবেন)
+        const products = [
+            { name: "Samsung Galaxy Offer", price: "৳৪৫,০০০", shop: "Daraz", link: "#" },
+            { name: "iPhone 15 Discount", price: "৳৯৮,০০০", shop: "Amazon", link: "#" },
+            { name: "Fast Charging Cable", price: "৳৫০০", shop: "Own Store", link: "#" },
+            { name: "Wireless Headphone", price: "৳২,৫০০", shop: "AliExpress", link: "#" }
+        ];
+
+        // ছবি অটো জেনারেট (অ্যানিমেশনের জন্য)
+        const grid = document.getElementById('imageGrid');
+        for(let i=1; i<=20; i++) {
+            let img = document.createElement('img');
+            img.src = `https://picsum.photos{i}`;
+            img.className = "animate__animated animate__fadeInUp"; // Animate.css ক্লাস
+            grid.appendChild(img);
+        }
+
+        // সার্চ ফাংশন
+        const searchInput = document.getElementById('searchInput');
+        const display = document.getElementById('productDisplay');
+
+        function showProducts(filter = "") {
+            display.innerHTML = "";
+            const filtered = products.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
+            
+            filtered.forEach(p => {
+                display.innerHTML += `
+                    <div class="card animate__animated animate__zoomIn">
+                        <img src="https://via.placeholder.com" style="width:100%">
+                        <h3>${p.name}</h3>
+                        <p>Price: ${p.price}</p>
+                        <p>Market: <strong>${p.shop}</strong></p>
+                        <a href="${p.link}" class="buy-btn">View Offer</a>
+                    </div>
+                `;
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => showProducts(e.target.value));
+        showProducts(); // শুরুতে সব দেখাবে
+    </script>
+</body>
+</html>
+
 
