@@ -3,175 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deal USA - Best Online Deals & Discounts</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    
-    <!-- Swiper CSS (Full Link) -->
+    <title>DEAL USA - Best Offers</title>
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net" />
-    
     <style>
-        :root {
-            --primary-red: #ff4d4d;
-            --dark-blue: #1a237e;
-            --bg-gray: #f0f2f5;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-gray);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: var(--dark-blue);
-            width: 100%;
-            color: white;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        header h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
-        header p { margin: 5px 0 0; font-size: 16px; opacity: 0.8; }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .swiper {
-            width: 100%;
-            padding: 50px 0;
-        }
-
-        .swiper-slide {
-            background: #fff;
-            border-radius: 20px;
-            width: 300px;
-            padding: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #eee;
-        }
-
-        .discount-badge {
-            background: var(--primary-red);
-            color: white;
-            font-weight: 700;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .offer-img {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
-
-        .offer-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
-            height: 50px;
-            overflow: hidden;
-        }
-
-        .btn-get-deal {
-            background: var(--dark-blue);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-get-deal:hover {
-            background: #0d144d;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: white;
-            width: 100%;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 13px;
-            color: #777;
-            border-top: 1px solid #ddd;
-        }
+        body { font-family: sans-serif; background: #f0f2f5; text-align: center; margin: 0; }
+        header { background: #1a237e; color: white; padding: 40px 0; }
+        .swiper { width: 100%; padding: 50px 0; }
+        .swiper-slide { background: #fff; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; }
+        .offer-img { width: 150px; height: 150px; margin-bottom: 15px; object-fit: contain; }
+        .btn { background: #1a237e; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        footer { padding: 20px; color: #777; font-size: 12px; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>DEAL USA</h1>
         <p>Top Rated Discounts from Amazon, Alibaba & More!</p>
     </header>
 
-    <div class="container">
-        <!-- Slider Main Container -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper" id="deal-container">
-                <!-- Data will appear here -->
+    <!-- Slider Container -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <!-- Deal 1 -->
+            <div class="swiper-slide">
+                <div style="color:red; font-weight:bold; margin-bottom:10px;">50% OFF</div>
+                <img src="https://via.placeholder.com" class="offer-img">
+                <h3>Premium Tech Gadgets</h3>
+                <a href="#" class="btn">GET DEAL NOW</a>
             </div>
-            <div class="swiper-pagination"></div>
+            <!-- Deal 2 -->
+            <div class="swiper-slide">
+                <div style="color:red; font-weight:bold; margin-bottom:10px;">60% OFF</div>
+                <img src="https://via.placeholder.com" class="offer-img">
+                <h3>Alibaba Hot Offers</h3>
+                <a href="#" class="btn">GET DEAL NOW</a>
+            </div>
+            <!-- Deal 3 -->
+            <div class="swiper-slide">
+                <div style="color:red; font-weight:bold; margin-bottom:10px;">70% OFF</div>
+                <img src="https://via.placeholder.com" class="offer-img">
+                <h3>USA Fashion Trends</h3>
+                <a href="#" class="btn">GET DEAL NOW</a>
+            </div>
         </div>
+        <div class="swiper-pagination"></div>
     </div>
 
-    <footer>
-        &copy; 2024 Deal USA. All rights reserved. Affiliate Disclosure Included.
-    </footer>
+    <footer>&copy; 2024 Deal USA. All rights reserved.</footer>
 
-    <!-- Swiper JS (Full Library Link) -->
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net"></script>
-
     <script>
-        // Real Deal Data
-        const deals =;
-
-        const container = document.getElementById('deal-container');
-
-        // Adding Deals to the Website
-        deals.forEach(deal => {
-            container.innerHTML += `
-                <div class="swiper-slide">
-                    <div class="discount-badge">${deal.discount}</div>
-                    <img src="${deal.img}" class="offer-img">
-                    <div class="offer-title">${deal.title}</div>
-                    <a href="${deal.link}" target="_blank" class="btn-get-deal">GET DEAL</a>
-                </div>
-            `;
-        });
-
-        // Initializing the Animation
-        new Swiper(".mySwiper", {
-            grabCursor: true,
+        var swiper = new Swiper(".mySwiper", {
             centeredSlides: true,
             slidesPerView: "auto",
             spaceBetween: 30,
-            autoplay: { delay: 2500 },
+            autoplay: { delay: 3000, disableOnInteraction: false },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
     </script>
 </body>
 </html>
+
 
